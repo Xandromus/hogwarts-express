@@ -26,14 +26,31 @@
         trainName = $("#trainName").val().trim();
         destination = $("#destination").val().trim();
         firstTrainTime = $("#firstTrainTime").val().trim();
-        frequency = $("#frequency").val();
-        $(nextArrival).val("1");
-        $(minutesAway).val("1");
-        // use train example for this code
-        //var convertedDate = moment(firstTrainTime, monthFormat);
-        //time = (moment(convertedDate).diff(moment(), "months") * -1);
-        //nextArrival = (now - firstTrainTime) % frequency
-        //minutesAway = nextArrival - now;
+        frequency = $("#frequency").val().trim();    
+
+    // First Time (pushed back 1 year to make sure it comes before current time)
+    var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + currentTime.format("HH:mm"));
+
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    // Time apart (remainder)
+    var remainder = diffTime % frequency;
+    console.log(remainder);
+
+    // Minute Until Train
+    minutesAway = frequency - remainder;
+    console.log("MINUTES TILL TRAIN: " + minutesAway);
+
+    // Next Train
+    nextArrival = moment().add(minutesAway, "minutes").format("HH:mm");
+    console.log("ARRIVAL TIME: " + nextArrival);
 
         emptyInput();
 
@@ -44,8 +61,8 @@
         destination: destination,
         first: firstTrainTime,
         frequency: frequency,
-        //next: nextArrival,
-        //minutes: minutesAway,
+        next: nextArrival,
+        minutes: minutesAway,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
       });
     });
@@ -62,8 +79,8 @@
           var nameCell = $("<td>").text(sv.name);
         var destCell = $("<td>").text(sv.destination);
         var frequencyCell = $("<td>").text(sv.frequency);
-        var nextCell = $("<td>").text(sv.nextArrival);
-        var minutesCell = $("<td>").text(sv.minutesAway);
+        var nextCell = $("<td>").text(sv.next);
+        var minutesCell = $("<td>").text(sv.minutes);
         var newRow = $("<tr>").append(nameCell, destCell, frequencyCell, nextCell, minutesCell);
         $("#trains").append(newRow);
 
