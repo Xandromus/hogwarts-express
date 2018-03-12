@@ -6,8 +6,7 @@
     var frequency;
     var nextArrival;
     var minutesAway;
-    var currentTime;
-    var intervalId;
+    var key;
 
     var database = firebase.database();
 
@@ -18,11 +17,6 @@
         $("#firstTrainTime").val("");
         $("#frequency").val("");
     }
-
-    updateTime();
-    setInterval(function() {
-        updateTime();
-    }, 60000);
 
     // Adds click functionality to submit button
     $("#add-train-form").on("submit", function(e) {
@@ -40,7 +34,7 @@
         console.log(firstTimeConverted);
 
         // Current Time
-        //var currentTime = moment();
+        var currentTime = moment();
         console.log("CURRENT TIME: " + currentTime.format("HH:mm"));
 
         // Difference between the times
@@ -69,15 +63,20 @@
             dateAdded: firebase.database.ServerValue.TIMESTAMP
         };
 
-        database.ref().push(newTrain);
+        key = database.ref("trains/").push().key;
+        console.log(key);
+
+        database.ref("trains/").push(newTrain);
 
         emptyInput();
     });
 
-    database.ref()
+
+    database.ref("trains/")
         .orderByChild("dateAdded")
         .on("child_added", function(snapshot) {
             // storing the snapshot.val() in a variable for convenience
+            console.log(key);
             var sv = snapshot.val();
 
 
@@ -87,7 +86,8 @@
             var frequencyCell = $("<td>").text(sv.frequency);
             var nextCell = $("<td>").text(sv.next);
             var minutesCell = $("<td>").text(sv.minutes);
-            var newRow = $("<tr>").append(nameCell, destCell, frequencyCell, nextCell, minutesCell);
+            var remove = $("<td><input type='submit' value='remove train' class='remove btn btn-primary btn-sm'></td>");
+            var newRow = $("<tr>").append(nameCell, destCell, frequencyCell, nextCell, minutesCell, remove).attr("data-id", key);
             $("#trains").append(newRow);
 
             // Handle the errors
@@ -95,6 +95,11 @@
             console.log("Errors handled: " + errorObject.code);
         });
 
-
-
+    $("body").on("click", ".remove", function() {
+        $(this).closest("tr").remove();
+        var id = $(this).closest("tr").data("id");
+        console.log(id);
+        console.log(database.ref("trains/" + id));
+        database.ref("trains/" + id).remove();
+    });
 })();
