@@ -18,9 +18,7 @@
     }
 
     // Adds click functionality to submit button
-    $("#submit").on('click', function () {
-
-        var monthFormat = "MM/DD/YYYY";
+    $("#submit").on("click", function () {
 
         // Assigns user input to variables
         trainName = $("#trainName").val().trim();
@@ -52,11 +50,7 @@
     nextArrival = moment().add(minutesAway, "minutes").format("HH:mm");
     console.log("ARRIVAL TIME: " + nextArrival);
 
-        emptyInput();
-
-       
-        // Code for handling the push
-      database.ref().push({
+       var newTrain = {
         name: trainName,
         destination: destination,
         first: firstTrainTime,
@@ -64,13 +58,17 @@
         next: nextArrival,
         minutes: minutesAway,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
-      });
+      };
+
+    database.ref().push(newTrain);
+
+    emptyInput();
     });
+
 
     database.ref()
         .orderByChild("dateAdded")
-        .limitToLast(1)
-        .on("child_added", function(snapshot) {
+        .on("child_added", function(snapshot, prevChildKey) {
           // storing the snapshot.val() in a variable for convenience
           var sv = snapshot.val();
 
