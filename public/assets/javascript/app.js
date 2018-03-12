@@ -19,11 +19,6 @@
         $("#frequency").val("");
     }
 
-    updateTime();
-    setInterval(function() {
-        updateTime();
-    }, 60000);
-
     // Adds click functionality to submit button
     $("#add-train-form").on("submit", function(e) {
 
