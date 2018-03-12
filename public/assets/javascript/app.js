@@ -35,7 +35,7 @@
         console.log(firstTimeConverted);
 
         // Current Time
-        //var currentTime = moment();
+        var currentTime = moment();
         console.log("CURRENT TIME: " + currentTime.format("HH:mm"));
 
         // Difference between the times
