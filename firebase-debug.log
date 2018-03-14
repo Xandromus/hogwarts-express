@@ -80,3 +80,44 @@
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-03-13T18:20:26.677Z] ----------------------------------------------------------------------
+[debug] [2018-03-13T18:20:26.679Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\prodr\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-03-13T18:20:26.679Z] CLI Version:   3.17.6
+[debug] [2018-03-13T18:20:26.679Z] Platform:      win32
+[debug] [2018-03-13T18:20:26.680Z] Node Version:  v8.9.4
+[debug] [2018-03-13T18:20:26.680Z] Time:          Tue Mar 13 2018 13:20:26 GMT-0500 (Central Daylight Time)
+[debug] [2018-03-13T18:20:26.680Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-13T18:20:26.785Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-13T18:20:26.785Z] > authorizing via signed-in user
+[debug] [2018-03-13T18:20:26.785Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-13T18:20:26.785Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/khVh19_U3XsRlhrJtg3uf3PkfOvhOUIdWJxSF9URTH8',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Mar 13 2018 13:20:26 GMT-0500 (Central Daylight Time)
+[debug] [2018-03-13T18:20:27.050Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-13T18:20:27.113Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/xander-train-scheduler  
+  
+ Tue Mar 13 2018 13:20:27 GMT-0500 (Central Daylight Time)
+[debug] [2018-03-13T18:20:27.675Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-13T18:20:27.676Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/xander-train-scheduler/tokens  
+  
+ Tue Mar 13 2018 13:20:27 GMT-0500 (Central Daylight Time)
+[debug] [2018-03-13T18:20:28.345Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-13T18:20:28.345Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/xander-train-scheduler  
+  
+ Tue Mar 13 2018 13:20:28 GMT-0500 (Central Daylight Time)
+[debug] [2018-03-13T18:20:28.630Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\prodr\Desktop\xandromus.github.io\train-scheduler'...
+[info] 
+[debug] [2018-03-13T18:20:28.630Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/879356457846/clients/_:getWebAppConfig  
+  
+ Tue Mar 13 2018 13:20:28 GMT-0500 (Central Daylight Time)
+[debug] [2018-03-13T18:20:29.165Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

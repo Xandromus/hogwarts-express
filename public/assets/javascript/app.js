@@ -6,8 +6,7 @@
     var frequency;
     var nextArrival;
     var minutesAway;
-    var currentTime;
-    var intervalId;
+    var key;
 
     var database = firebase.database();
 
@@ -25,12 +24,40 @@
         e.preventDefault();
 
         // Assigns user input to variables
-        trainName = $("#trainName").val().trim();
-        destination = $("#destination").val().trim();
+        trainName = $("#trainName").val().trim().toLowerCase();
+        destination = $("#destination").val().trim().toLowerCase();
         firstTrainTime = $("#firstTrainTime").val().trim();
         frequency = $("#frequency").val().trim();
 
-        // First Time (pushed back 1 year to make sure it comes before current time)
+        var newTrain = {
+            name: trainName,
+            destination: destination,
+            first: firstTrainTime,
+            frequency: frequency,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+        };
+
+        database.ref("trains/").push(newTrain);
+
+        emptyInput();
+    });
+
+
+    database.ref("trains/")
+        .orderByChild("dateAdded")
+        .on("child_added", function(snapshot) {
+            // storing the snapshot.val() in a variable for convenience
+            console.log(key);
+            var sv = snapshot.val();
+            key = snapshot.key;
+            console.log(key);
+
+            trainName = snapshot.val().name;
+            destination = snapshot.val().destination;
+            firstTrainTime = snapshot.val().first;
+            frequency = snapshot.val().frequency;
+
+            // First Time (pushed back 1 year to make sure it comes before current time)
         var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
         console.log(firstTimeConverted);
 
@@ -51,38 +78,17 @@
         console.log("MINUTES TILL TRAIN: " + minutesAway);
 
         // Next Train
-        nextArrival = moment().add(minutesAway, "minutes").format("hh:mm A");
+        nextArrival = moment().add(minutesAway, "minutes").format("h:mm A");
         console.log("ARRIVAL TIME: " + nextArrival);
 
-        var newTrain = {
-            name: trainName,
-            destination: destination,
-            first: firstTrainTime,
-            frequency: frequency,
-            next: nextArrival,
-            minutes: minutesAway,
-            dateAdded: firebase.database.ServerValue.TIMESTAMP
-        };
-
-        database.ref().push(newTrain);
-
-        emptyInput();
-    });
-
-    database.ref()
-        .orderByChild("dateAdded")
-        .on("child_added", function(snapshot) {
-            // storing the snapshot.val() in a variable for convenience
-            var sv = snapshot.val();
-
-
             // Change the HTML to reflect
-            var nameCell = $("<td>").text(sv.name);
-            var destCell = $("<td>").text(sv.destination);
+            var nameCell = $("<td class='capitalize'>").text(sv.name);
+            var destCell = $("<td class='capitalize'>").text(sv.destination);
             var frequencyCell = $("<td>").text(sv.frequency);
-            var nextCell = $("<td>").text(sv.next);
-            var minutesCell = $("<td>").text(sv.minutes);
-            var newRow = $("<tr>").append(nameCell, destCell, frequencyCell, nextCell, minutesCell);
+            var nextCell = $("<td>").text(nextArrival);
+            var minutesCell = $("<td>").text(minutesAway);
+            var remove = $("<td class='text-center'><button type='submit' class='remove btn btn-primary btn-sm'><i class='fa fa-trash'></i> Remove</button></td>");
+            var newRow = $("<tr>").append(nameCell, destCell, frequencyCell, nextCell, minutesCell, remove).attr("data-id", key);
             $("#trains").append(newRow);
 
             // Handle the errors
@@ -90,6 +96,12 @@
             console.log("Errors handled: " + errorObject.code);
         });
 
-
+    $("body").on("click", ".remove", function() {
+        $(this).closest("tr").remove();
+        var id = $(this).closest("tr").data("id");
+        console.log(id);
+        //console.log(database.ref("trains/" + id).child(key).child(key));
+        database.ref("trains/").child(id).remove();
+    });
 
 })();

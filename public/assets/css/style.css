@@ -1,0 +1,163 @@
+html {
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    position: relative;
+	font-family: 'Sorts Mill Goudy', serif;
+	font-weight: bolder;
+    background: url(../images/crest.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+/* WRAPPER */
+
+.wrapper {
+    box-sizing: border-box;
+    min-height: 100%;
+    padding: 0 0 100px;
+    position: relative;
+}
+
+/* MAIN */
+
+main {
+    margin-bottom: auto;
+    position: relative;
+}
+
+
+
+/* MIDDLE */
+
+.middle {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.card {
+	background-color: #F9F9F9;
+}
+
+.card-header {
+	background-color: #661D26;
+	color: #EAB965;
+}
+
+.card-body {
+	background-color: #F9F9F9;
+}
+
+.jumbotron {
+	background-color: #661D26;
+	color: #EAB965;
+	border-radius: 0!important;
+	border: 10px solid transparent;
+	border-image: repeating-linear-gradient(30deg, #661D26, #EAB965, #EAB965 30px) 60;
+}
+
+.remove {
+	padding-top: .45rem;
+}
+
+.btn,
+.remove {
+	background-color: #EAB965;
+	border: 0;
+	color: black;
+}
+
+.btn:hover,
+.remove:hover {
+	background-color: #661D26;
+	color: white;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+	background-color: #661D26;
+	color: white;	
+}
+
+/* FOOTER */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    clear: both;
+    text-align: center;
+    color: white;
+}
+
+footer p {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2rem;
+}
+
+
+@media screen and (max-width: 385px) {
+    body {
+        font-size: 0.5em;
+    }
+    h1, .jumbotron {
+    	font-size: 1.5em!important;
+    }
+    footer p {
+    	font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 386px) {
+    body {
+        font-size: 0.6em;
+    }
+    h1, .jumbotron {
+    	font-size: 2em!important;
+    }
+}
+
+/* xs < 768 */
+@media screen and (min-width: 511px) {
+    body {
+        font-size: 0.7em;
+    }
+}
+
+/* sm */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: .8em;
+    }
+}
+
+/* md */
+@media screen and (min-width: 992px) {
+    body {
+        font-size: 1.2em;
+    }
+}
+
+/* lg */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 1.3em;
+    }
+}
