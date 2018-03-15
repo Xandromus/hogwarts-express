@@ -62,8 +62,12 @@ main {
 	background-color: #661D26;
 	color: #EAB965;
 	border-radius: 0!important;
-	border: 10px solid transparent;
-	border-image: repeating-linear-gradient(30deg, #661D26, #EAB965, #EAB965 30px) 60;
+	border: 10px solid #EAB965;
+	border-image: repeating-linear-gradient(30deg, #661D26, #EAB965, #EAB965 30px) 55;
+}
+
+label {
+    font-size: 1.5rem;
 }
 
 .remove {
@@ -120,6 +124,12 @@ footer p {
     h1, .jumbotron {
     	font-size: 1.5em!important;
     }
+    h5 {
+        font-size: .8rem!important;
+    }
+    label, input {
+        font-size: .8rem!important;
+    }
     footer p {
     	font-size: 1.5rem;
     }
@@ -131,6 +141,18 @@ footer p {
     }
     h1, .jumbotron {
     	font-size: 2em!important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container-fluid > .card-body {
+        padding: 0!important;
+    }
+    label {
+        font-size: 1.2rem;
+    }
+    .btn, .remove {
+        font-size: .7rem!important;
     }
 }
 
