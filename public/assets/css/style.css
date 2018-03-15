@@ -7,23 +7,24 @@ html {
 body {
     height: 100%;
     position: relative;
-	font-family: 'Sorts Mill Goudy', serif;
-	font-weight: bolder;
+    font-family: 'Sorts Mill Goudy', serif;
+    font-weight: bolder;
     background: url(../images/crest.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
 .capitalize {
-	text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .table thead th {
-    border-bottom: 1px solid #661D2680;
+    border-bottom: 1px solid rgba(102,29,38, .5);
 }
 
 .table tbody tr:hover {
-    background-color: #661D2610;
+    background-color: rgba(102,29,38, .1);
 }
+
 
 /* WRAPPER */
 
@@ -34,12 +35,14 @@ body {
     position: relative;
 }
 
+
 /* MAIN */
 
 main {
     margin-bottom: auto;
     position: relative;
 }
+
 
 
 
@@ -54,24 +57,24 @@ main {
 }
 
 .card {
-	background-color: #F9F9F9;
+    background-color: #F9F9F9;
 }
 
 .card-header {
-	background-color: #661D26;
-	color: #EAB965;
+    background-color: #661D26;
+    color: #EAB965;
 }
 
 .card-body {
-	background-color: #F9F9F9;
+    background-color: #F9F9F9;
 }
 
 .jumbotron {
-	background-color: #661D26;
-	color: #EAB965;
-	border-radius: 0!important;
-	border: 10px solid #EAB965;
-	border-image: repeating-linear-gradient(30deg, #661D26, #EAB965, #EAB965 30px) 55;
+    background-color: #661D26;
+    color: #EAB965;
+    border-radius: 0!important;
+    border: 10px solid #EAB965;
+    border-image: repeating-linear-gradient(30deg, #661D26, #EAB965, #EAB965 30px) 55;
 }
 
 label {
@@ -79,26 +82,27 @@ label {
 }
 
 .remove {
-	padding-top: .45rem;
+    padding-top: .45rem;
 }
 
 .btn,
 .remove {
-	background-color: #EAB965;
-	border: 0;
-	color: black;
+    background-color: #EAB965;
+    border: 0;
+    color: black;
 }
 
 .btn:hover,
 .remove:hover {
-	background-color: #661D26;
-	color: white;
+    background-color: #661D26;
+    color: white;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active {
-	background-color: #661D26;
-	color: white;	
+    background-color: #661D26;
+    color: white;
 }
+
 
 /* FOOTER */
 
@@ -129,17 +133,19 @@ footer p {
     body {
         font-size: 0.5em;
     }
-    h1, .jumbotron {
-    	font-size: 1.5em!important;
+    h1,
+    .jumbotron {
+        font-size: 1.5em!important;
     }
     h5 {
         font-size: .8rem!important;
     }
-    label, input {
+    label,
+    input {
         font-size: .8rem!important;
     }
     footer p {
-    	font-size: 1.5rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -147,45 +153,55 @@ footer p {
     body {
         font-size: 0.6em;
     }
-    h1, .jumbotron {
-    	font-size: 2em!important;
+    h1,
+    .jumbotron {
+        font-size: 2em!important;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .container-fluid > .card-body {
+    .container-fluid>.card-body {
         padding: 0!important;
     }
     label {
         font-size: 1.2rem;
     }
-    .btn, .remove {
+    .btn,
+    .remove {
         font-size: .7rem!important;
     }
 }
 
+
 /* xs < 768 */
+
 @media screen and (min-width: 511px) {
     body {
         font-size: 0.7em;
     }
 }
 
+
 /* sm */
+
 @media screen and (min-width: 768px) {
     body {
         font-size: .8em;
     }
 }
 
+
 /* md */
+
 @media screen and (min-width: 992px) {
     body {
         font-size: 1.2em;
     }
 }
 
+
 /* lg */
+
 @media screen and (min-width: 1200px) {
     body {
         font-size: 1.3em;
