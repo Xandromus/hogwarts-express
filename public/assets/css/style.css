@@ -17,6 +17,14 @@ body {
 	text-transform: capitalize;
 }
 
+.table thead th {
+    border-bottom: 1px solid #661D2680;
+}
+
+.table tbody tr:hover {
+    background-color: #661D2610;
+}
+
 /* WRAPPER */
 
 .wrapper {
