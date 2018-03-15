@@ -1,3 +1,5 @@
+/* BASIC STYLES */
+
 html {
     max-height: 100%;
     max-width: 100%;
@@ -17,14 +19,6 @@ body {
     text-transform: capitalize;
 }
 
-.table thead th {
-    border-bottom: 1px solid rgba(102,29,38, .5);
-}
-
-.table tbody tr:hover {
-    background-color: rgba(102,29,38, .1);
-}
-
 
 /* WRAPPER */
 
@@ -36,14 +30,23 @@ body {
 }
 
 
+/* HEADER */
+
+.jumbotron {
+    background-color: #661D26;
+    color: #EAB965;
+    border-radius: 0!important;
+    border: 10px solid #EAB965;
+    border-image: repeating-linear-gradient(30deg, #661D26, #EAB965, #EAB965 30px) 55;
+}
+
+
 /* MAIN */
 
 main {
     margin-bottom: auto;
     position: relative;
 }
-
-
 
 
 /* MIDDLE */
@@ -55,6 +58,9 @@ main {
     height: 100%;
     margin: 0 auto;
 }
+
+
+/* CARDS AND TABLE */
 
 .card {
     background-color: #F9F9F9;
@@ -69,12 +75,12 @@ main {
     background-color: #F9F9F9;
 }
 
-.jumbotron {
-    background-color: #661D26;
-    color: #EAB965;
-    border-radius: 0!important;
-    border: 10px solid #EAB965;
-    border-image: repeating-linear-gradient(30deg, #661D26, #EAB965, #EAB965 30px) 55;
+.table thead th {
+    border-bottom: 1px solid rgba(102, 29, 38, .5);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(102, 29, 38, .1);
 }
 
 label {
@@ -129,6 +135,8 @@ footer p {
 }
 
 
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 385px) {
     body {
         font-size: 0.5em;
@@ -159,6 +167,15 @@ footer p {
     }
 }
 
+
+/* xs < 768 */
+
+@media screen and (min-width: 511px) {
+    body {
+        font-size: 0.7em;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .container-fluid>.card-body {
         padding: 0!important;
@@ -169,15 +186,6 @@ footer p {
     .btn,
     .remove {
         font-size: .7rem!important;
-    }
-}
-
-
-/* xs < 768 */
-
-@media screen and (min-width: 511px) {
-    body {
-        font-size: 0.7em;
     }
 }
 
