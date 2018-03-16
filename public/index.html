@@ -53,19 +53,19 @@
                         <form id="add-train-form">
                             <div class="form-group">
                                 <label for="trainName">Train Name</label>
-                                <input type="text" class="form-control" placeholder="Train Name" id="trainName">
+                                <input type="text" class="form-control" placeholder="Train Name" id="trainName" required>
                             </div>
                             <div class="form-group">
                                 <label for="destination">Destination</label>
-                                <input type="text" class="form-control" placeholder="Destination" id="destination">
+                                <input type="text" class="form-control" placeholder="Destination" id="destination" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstTrainTime">First Train Time (HH:mm - military time)</label>
-                                <input type="text" class="form-control" pattern="([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}" placeholder="HH:mm - military time" id="firstTrainTime">
+                                <input type="text" class="form-control" pattern="([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}" placeholder="HH:mm - military time" id="firstTrainTime" required>
                             </div>
                             <div class="form-group">
                                 <label for="frequency">Frequency (min)</label>
-                                <input type="number" class="form-control" min="1" max="30" step="1" placeholder="Frequency (up to 30 minutes)" id="frequency">
+                                <input type="number" class="form-control" min="1" max="30" step="1" placeholder="Frequency (up to 30 minutes)" id="frequency" required>
                             </div>
                             <input class="btn btn-primary" value="submit" type="submit" id="submit">
                         </form>
