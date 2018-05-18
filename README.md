@@ -4,7 +4,7 @@ A train scheduling app using Firebase to add in and display database information
 
 ## Description
 
-[Train Scheduler](https://xandromus.github.io/train-scheduler/public/index.html)
+[Train Scheduler](https://xandromus.github.io/hogwarts-express/public/index.html)
 
 ![Train Scheduler](https://xandromus.github.io/responsive-portfolio/assets/images/train.png)
 
