@@ -4,9 +4,9 @@ A train scheduling app using Firebase to add in and display database information
 
 ## Description
 
-[Train Scheduler](https://xandromus.github.io/hogwarts-express/public/index.html)
+[Hogwarts Express](https://xandromus.github.io/hogwarts-express/public/index.html)
 
-![Train Scheduler](https://xandromus.github.io/responsive-portfolio/assets/images/train.png)
+![Hogwarts Express](https://xandromus.github.io/responsive-portfolio/assets/images/train.png)
 
 A Harry Potter-themed train scheduler using the Firebase database. Users can enter new train information into the schedule, including:
 
