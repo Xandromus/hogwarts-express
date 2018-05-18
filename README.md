@@ -1,4 +1,4 @@
-# Train Scheduler
+# Hogwarts Express
 
 A train scheduling app using Firebase to add in and display database information
 
